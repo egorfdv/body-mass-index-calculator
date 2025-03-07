@@ -7,9 +7,20 @@ import (
 
 func main() {
 	fmt.Println("__ Калькулятор индекса массы тела __ ")
-	userHeight, userWeight := getUserInput()
-	IMT := calculateIMT(userWeight, userHeight)
-	outputResult(IMT)
+	for {
+		userHeight, userWeight := getUserInput()
+		IMT := calculateIMT(userWeight, userHeight)
+		outputResult(IMT)
+		menuForUser := menuContinueOrExit()
+		if !menuForUser {
+			break
+		}
+	}
+}
+
+func outputResult(IMT float64) {
+	result := fmt.Sprintf("Ваш индекс массы тела: %.0f", IMT)
+	fmt.Println(result)
 	switch true {
 	case IMT < 16:
 		fmt.Println("У вас сильный дефицит массы тела")
@@ -22,11 +33,6 @@ func main() {
 	default:
 		fmt.Println("У вас степень ожирения")
 	}
-}
-
-func outputResult(IMT float64) {
-	result := fmt.Sprintf("Ваш индекс массы тела: %.0f", IMT)
-	fmt.Println(result)
 }
 
 func calculateIMT(userWeight float64, userHeight float64) float64 {
@@ -45,6 +51,16 @@ func getUserInput() (float64, float64) {
 	return userHeight, userWeight
 }
 
+func menuContinueOrExit() bool {
+	var menuVariants string
+	fmt.Print("Вы хотите повторить расчет?(y/n): ")
+	fmt.Scan(&menuVariants)
+	if menuVariants == "y" || menuVariants == "Y" {
+		return true
+	}
+	return false
+}
+
 // Trash
 // if IMT < 16 {
 // 	fmt.Println("У вас сильный дефицит массы тела")
@@ -56,4 +72,17 @@ func getUserInput() (float64, float64) {
 // 	fmt.Println("У вас избыточный вес")
 // } else {
 // 	fmt.Println("У вас степень ожирения")
+// }
+
+// i := 0
+// for i < 10 {
+// 	fmt.Printf("%d\n", i)
+// 	i++
+// }
+
+// for i := 0; i < 10; i++ {
+// 	if i == 5 {
+// 		continue
+// 	}
+// 	fmt.Printf("%d\n", i)
 // }
