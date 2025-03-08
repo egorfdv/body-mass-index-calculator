@@ -68,29 +68,3 @@ func menuContinueOrExit() bool {
 	}
 	return false
 }
-
-// Trash
-// if IMT < 16 {
-// 	fmt.Println("У вас сильный дефицит массы тела")
-// } else if IMT < 18.5 {
-// 	fmt.Println("У вас дефицит массы тела")
-// } else if IMT < 25 {
-// 	fmt.Println("У вас нормальный вес")
-// } else if IMT < 30 {
-// 	fmt.Println("У вас избыточный вес")
-// } else {
-// 	fmt.Println("У вас степень ожирения")
-// }
-
-// i := 0
-// for i < 10 {
-// 	fmt.Printf("%d\n", i)
-// 	i++
-// }
-
-// for i := 0; i < 10; i++ {
-// 	if i == 5 {
-// 		continue
-// 	}
-// 	fmt.Printf("%d\n", i)
-// }
